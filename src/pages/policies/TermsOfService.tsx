@@ -1,12 +1,15 @@
-import { Link } from 'react-router'
 import { Seo } from '../../components/Seo'
 import { PolicyLayout } from '../../components/PolicyLayout'
 import { PolicySection } from '../../components/PolicySection'
+import { apps } from '../../data/apps'
+import { site } from '../../data/site'
 
 // Review this date whenever the Terms of Service are updated.
 const LAST_UPDATED = 'November 8, 2026'
 
 const linkClasses = 'font-medium text-accent transition-colors hover:text-accent-hover'
+const legalPoliciesUrl = `${site.siteUrl}/privacy`
+const appPolicies = apps.filter((app) => app.privacyPath)
 
 export function TermsOfService() {
   return (
@@ -27,12 +30,12 @@ export function TermsOfService() {
             These Terms of Service (&quot;Terms&quot;) govern your access to and use of the
             website at{' '}
             <a
-              href="https://shadow-studio-labs.netlify.app"
+              href={site.siteUrl}
               target="_blank"
               rel="noopener noreferrer"
               className={linkClasses}
             >
-              shadow-studio-labs.netlify.app
+              {site.siteUrl.replace(/^https?:\/\//, '')}
             </a>{' '}
             and the mobile applications, features and other digital services published by Shadow
             Studio Labs (together, the &quot;Services&quot;). The Services include applications
@@ -46,10 +49,15 @@ export function TermsOfService() {
           </p>
           <p>
             These Terms should be read together with our{' '}
-            <Link to="/privacy" className={linkClasses}>
-              Privacy Policy
-            </Link>{' '}
-            and any app-specific privacy policy that applies to an application you use. They
+            <a
+              href={legalPoliciesUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={linkClasses}
+            >
+              Privacy Policies
+            </a>{' '}
+            and the app-specific privacy policy that applies to an application you use. They
             should also be read with the terms, policies and payment rules that apply to Google
             Play. Where a Google Play policy governs the store, payment or refund process, that
             policy applies to that process. These Terms govern the relationship between you and
@@ -77,9 +85,14 @@ export function TermsOfService() {
             You must be legally capable of entering into a binding contract under the laws that
             apply to you in order to use the Services. If you are below the age of majority in your
             country, you may use the Services only with the involvement and consent of a parent or
-            legal guardian. Our applications are intended for a general audience and are not
-            directed at children under 13, unless an application&apos;s store listing or policy
-            states otherwise.
+            legal guardian.
+          </p>
+          <p>
+            Age requirements can differ between our applications. The Google Play listing for each
+            application states its target audience and content rating, and an app-specific privacy
+            policy may describe the intended audience. You must comply with the age requirements
+            that apply to the application you use. This page does not make a single age declaration
+            for every application; the listing and policy for the relevant application control.
           </p>
           <p>
             As of the Last Updated date, our published applications do not require a Shadow Studio
@@ -208,9 +221,14 @@ export function TermsOfService() {
             Advertisements may be personalised or non-personalised depending on the app, your
             consent choices, your device settings and the region in which you use the application.
             Our{' '}
-            <Link to="/privacy" className={linkClasses}>
-              Privacy Policy
-            </Link>{' '}
+            <a
+              href={legalPoliciesUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={linkClasses}
+            >
+              Privacy Policies
+            </a>{' '}
             and the relevant app-specific privacy policy explain how advertising data is handled.
           </p>
           <p>
@@ -237,22 +255,34 @@ export function TermsOfService() {
 
         <PolicySection title="8. In-App Purchases and Payments">
           <p>
-            Certain applications may offer optional premium digital content, features or other
-            digital items (collectively, &quot;Premium Content&quot;) for purchase through Google
-            Play Billing. Where an application offers such purchases, the following applies.
+            Certain applications may offer optional paid digital content, features or other digital
+            items (collectively, &quot;Premium Content&quot;) through Google Play Billing. Premium
+            Content may be offered as a one-time purchase or, where an application offers it, as a
+            subscription. The Google Play listing and the in-app purchase screen indicate which type
+            applies to a particular item.
+          </p>
+          <p>
+            A one-time purchase (sometimes described as a &quot;permanent&quot;, &quot;lifetime&quot;
+            or &quot;unlock&quot; purchase) is a single payment that is not intended to renew.
+            Subject to these Terms, Google Play&apos;s policies and applicable law, a valid one-time
+            purchase is intended to remain available to the Google account used to make the purchase
+            for as long as the relevant application supports the purchased feature. A subscription
+            is a recurring payment that provides access for the applicable billing period and renews
+            automatically unless cancelled through Google Play.
           </p>
           <p>
             Purchases are processed by Google through Google Play Billing. Shadow Studio Labs does
             not process your payment directly and does not collect or store your payment card
             details. Google&apos;s terms, payment policies and privacy policy govern the payment
-            transaction, including the payment method, billing, taxes and account requirements.
+            transaction, including the payment method, billing, taxes, renewals and account
+            requirements.
           </p>
           <p>
             The price, currency, taxes and availability of Premium Content are shown by Google Play
             at the time of purchase and may vary by country or region. The price displayed at
-            checkout is the price that applies to that transaction. We may change the price,
-            availability or composition of Premium Content, but changes do not affect a completed
-            purchase except as required by applicable law or Google Play policy.
+            checkout is the price that applies to that transaction. We may change the price or
+            availability of Premium Content for future purchases, but changes do not affect a
+            completed purchase except as required by applicable law or Google Play policy.
           </p>
           <p>
             You must be authorised to use the payment method you select. By confirming a purchase,
@@ -270,10 +300,18 @@ export function TermsOfService() {
 
         <PolicySection title="9. Premium Features and Digital Content">
           <p>
-            Premium Content is licensed to you, not sold to you. Subject to these Terms and the
-            applicable Google Play terms, you receive a limited, personal, non-exclusive,
-            non-transferable and revocable licence to use the Premium Content within the relevant
-            application for your own personal, non-commercial use.
+            Premium Content is licensed to you, not sold to you. Subject to these Terms, the
+            applicable Google Play terms and applicable law, you receive a limited, personal,
+            non-exclusive, non-transferable and revocable licence to use the Premium Content within
+            the relevant application for your own personal, non-commercial use.
+          </p>
+          <p>
+            A valid one-time purchase is intended to remain available to the original purchasing
+            Google account for as long as the relevant application supports the purchased feature.
+            We will not arbitrarily revoke a valid permanent purchase. Access may nevertheless be
+            affected by the limited exceptions described in the Refunds and Cancellation section,
+            such as a refund, a reversed transaction, a chargeback, a fraudulent or unauthorised
+            purchase, or a legal requirement.
           </p>
           <p>
             Premium Content may be linked to the Google account used for the purchase. It may not be
@@ -282,17 +320,27 @@ export function TermsOfService() {
             internet connection or a compatible version of the application.
           </p>
           <p>
-            Virtual items, virtual currency, unlocks and similar digital content do not have
-            monetary value, are not redeemable for cash and do not give you any ownership or
-            property interest. They may be changed, replaced, limited or discontinued as the
-            application evolves. Where required by applicable law or Google Play policy, we will
-            respect any rights you have in relation to a purchase.
+            To restore an eligible purchase after reinstalling an application or using another
+            compatible device, sign in to Google Play with the same Google account used for the
+            original purchase and use the application&apos;s restore option, if one is provided.
+            Google Play Billing is designed to restore eligible purchases associated with that
+            account. If a purchase does not restore, please contact Google Play support first; we
+            can assist where reasonably possible but cannot override Google&apos;s billing records.
           </p>
           <p>
-            We may add, modify, update or remove features and content, including Premium Content, to
-            improve the Services, address legal or technical requirements or reflect changes to
-            third-party services. We do not guarantee that any particular feature or item will
-            remain available indefinitely.
+            Unless a purchase is expressly described as a permanent one-time purchase, virtual
+            items, virtual currency, unlocks and similar digital content do not have monetary value,
+            are not redeemable for cash and do not give you any ownership or property interest.
+            They may be changed, replaced, limited or discontinued as the application evolves.
+            Where required by applicable law or Google Play policy, we will respect any rights you
+            have in relation to a purchase.
+          </p>
+          <p>
+            We may add, modify, update or remove features and content to improve the Services,
+            address legal or technical requirements or reflect changes to third-party services. If
+            we discontinue a feature for which you made a valid permanent purchase, we will handle
+            the change in accordance with Google Play policy and applicable law, which may include a
+            remedy where required.
           </p>
         </PolicySection>
 
@@ -317,46 +365,92 @@ export function TermsOfService() {
           <p>
             We do not process refunds directly for Google Play purchases. If you believe you were
             charged in error, please contact Google Play support and, if you wish, contact us with
-            the relevant details so that we can help where reasonably possible. Nothing in these
-            Terms limits any mandatory consumer rights you may have under applicable law.
+            the relevant details so that we can help where reasonably possible.
           </p>
           <p>
-            If an application offers a subscription, the subscription is managed through Google
-            Play. Subscriptions may renew automatically unless cancelled before the renewal date.
-            You can view and cancel a subscription in your Google Play account settings.
-            Cancellation stops future billing but does not usually reverse a charge that has already
-            been made, and access may continue until the end of the current billing period unless
-            stated otherwise. Uninstalling an application does not cancel a subscription.
+            <strong>One-time permanent purchases.</strong> A valid permanent purchase is not
+            intended to be revoked arbitrarily. However, access may be reversed or adjusted where:
+          </p>
+          <ul>
+            <li>the purchase is refunded through Google Play;</li>
+            <li>
+              the transaction is reversed, charged back or declined by the payment provider;
+            </li>
+            <li>
+              the purchase was fraudulent, unauthorised or made in violation of these Terms or
+              Google Play policy;
+            </li>
+            <li>we are required to do so by law or by a competent authority; or</li>
+            <li>
+              the application or the purchased feature is discontinued, in which case we will
+              handle the change in accordance with Google Play policy and applicable law.
+            </li>
+          </ul>
+          <p>
+            <strong>Subscriptions.</strong> If an application offers a subscription, the
+            subscription is managed through Google Play. Subscriptions may renew automatically
+            unless cancelled before the renewal date. You can view and cancel a subscription in
+            your Google Play account settings. Cancellation stops future billing but does not
+            usually reverse a charge that has already been made, and access may continue until the
+            end of the current billing period unless stated otherwise. Uninstalling an application
+            does not cancel a subscription.
           </p>
           <p>
             Digital content that has already been accessed, downloaded or consumed may not be
             refundable except where required by applicable law or Google Play policy. We encourage
             you to check the description of any Premium Content before purchasing it.
           </p>
+          <p>
+            Nothing in these Terms limits any mandatory consumer rights you may have under
+            applicable law, including the Consumer Protection Act, 2019 (where applicable), or your
+            right to contact Google Play or a competent consumer authority.
+          </p>
         </PolicySection>
 
         <PolicySection title="11. Privacy and Data Protection">
           <p>
             Our{' '}
-            <Link to="/privacy" className={linkClasses}>
-              Privacy Policy
-            </Link>{' '}
-            and the privacy policy for each application explain what information an application
-            stores locally, what information may be processed by third-party services such as
-            Google AdMob and Google Play Billing, and how you can contact us about privacy matters.
+            <a
+              href={legalPoliciesUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={linkClasses}
+            >
+              Privacy Policies index
+            </a>{' '}
+            explains how we handle information across the Services. Each application also has its
+            own privacy policy, which explains what that application stores locally, what
+            information may be processed by third-party services such as Google AdMob and Google
+            Play Billing, and how you can contact us about privacy matters.
           </p>
+          <p>The published app-specific privacy policies are available at:</p>
+          <ul>
+            {appPolicies.map((app) => (
+              <li key={app.slug}>
+                <a
+                  href={`${site.siteUrl}${app.privacyPath}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={linkClasses}
+                >
+                  {app.name} Privacy Policy
+                </a>
+              </li>
+            ))}
+          </ul>
           <p>
+            If an application does not have a separate policy, the Privacy Policies index applies.
             By using the Services, you acknowledge that information will be handled as described in
-            those policies. Some of our applications are designed to work without an account and
-            store your preferences and progress locally on your device. Third-party providers
+            the applicable policy. Some of our applications are designed to work without an account
+            and store your preferences and progress locally on your device. Third-party providers
             process information under their own privacy policies, which we link to in the relevant
             policy.
           </p>
           <p>
             We take reasonable technical and organisational measures to protect the Services and
             the information we control. However, no method of transmission or storage is completely
-            secure, and we cannot guarantee absolute security. Please review our Privacy Policy for
-            more information.
+            secure, and we cannot guarantee absolute security. Please review the applicable privacy
+            policy for more information.
           </p>
         </PolicySection>
 
@@ -391,16 +485,18 @@ export function TermsOfService() {
             reasonable control.
           </p>
           <p>
-            We may modify, update, suspend or discontinue any part of the Services, including
-            features, content, advertisements and Premium Content, at any time. We may also require
-            you to install an update to continue using an application. Where practicable, we will
-            try to give reasonable notice of material changes, but we are not obliged to do so
-            where immediate action is necessary for security, legal or operational reasons.
+            Subject to our commitments regarding valid permanent purchases in Sections 9 and 10, we
+            may modify, update, suspend or discontinue any part of the Services, including features,
+            content, advertisements and Premium Content, at any time. We may also require you to
+            install an update to continue using an application. Where practicable, we will try to
+            give reasonable notice of material changes, but we are not obliged to do so where
+            immediate action is necessary for security, legal or operational reasons.
           </p>
           <p>
-            We do not guarantee that any particular advertisement, reward, feature, purchase option
-            or piece of content will remain available. To the maximum extent permitted by law, we
-            are not liable for any modification, suspension or discontinuation of the Services.
+            Except as described in Sections 9 and 10, we do not guarantee that any particular
+            advertisement, reward, feature, purchase option or piece of content will remain
+            available. To the maximum extent permitted by law, we are not liable for any
+            modification, suspension or discontinuation of the Services.
           </p>
         </PolicySection>
 
@@ -454,7 +550,8 @@ export function TermsOfService() {
             Nothing in these Terms excludes or limits liability that cannot be excluded or limited
             by applicable law, including liability for fraud or for death or personal injury caused
             by negligence where such liability cannot lawfully be excluded. Mandatory consumer
-            rights under applicable law are not affected.
+            rights under applicable law, including the Consumer Protection Act, 2019 where
+            applicable, are not affected.
           </p>
         </PolicySection>
 
@@ -474,11 +571,12 @@ export function TermsOfService() {
           </p>
           <p>
             When your access ends, the licence granted to you under these Terms also ends, and you
-            must stop using the Services. Termination does not automatically entitle you to a
-            refund, except where required by applicable law or Google Play policy. The sections of
-            these Terms that by their nature should survive termination — including intellectual
-            property, disclaimers, limitation of liability, governing law and contact provisions —
-            will continue to apply.
+            must stop using the Services. This is subject to the permanent-purchase commitments in
+            Sections 9 and 10. Termination does not automatically entitle you to a refund, except
+            where required by applicable law or Google Play policy. The sections of these Terms that
+            by their nature should survive termination — including intellectual property,
+            disclaimers, limitation of liability, governing law and contact provisions — will
+            continue to apply.
           </p>
         </PolicySection>
 
@@ -532,16 +630,24 @@ export function TermsOfService() {
             </a>
           </p>
           <p>
-            If you are raising a grievance, please include enough information for us to understand
-            the issue — for example, the application name and version, your device and Android
-            version, a description of what happened, and any relevant order or purchase reference.
-            Please do not send payment card details or other sensitive information by email.
+            If you are raising a grievance, please use the email address above and include
+            &quot;Grievance&quot; in the subject line. Please include enough information for us to
+            understand the issue — for example, the application name and version, your device and
+            Android version, a description of what happened, and any relevant order or purchase
+            reference. Please do not send payment card details or other sensitive information by
+            email.
           </p>
           <p>
-            We will review and respond to messages within a reasonable period. For refunds,
-            cancellations and billing disputes relating to Google Play purchases, please contact
-            Google Play support as described in the Refunds and Cancellation section, because Google
-            controls the payment and billing record.
+            We will review and respond to messages within a reasonable period. If a dedicated
+            grievance officer or a specific statutory response period is required for a service we
+            operate under applicable Indian law, we will publish those details on this page. Nothing
+            in this section prevents you from approaching a consumer forum, regulator or other
+            competent authority.
+          </p>
+          <p>
+            For refunds, cancellations and billing disputes relating to Google Play purchases,
+            please contact Google Play support as described in the Refunds and Cancellation section,
+            because Google controls the payment and billing record.
           </p>
         </PolicySection>
       </PolicyLayout>
