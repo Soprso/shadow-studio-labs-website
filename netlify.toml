@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# SPA redirect: serve index.html for all routes so client-side routing
+# works when visiting /apps, /privacy, /privacy/fan or /contact directly.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
