@@ -13,6 +13,7 @@ import { FanPrivacyPolicy } from './pages/policies/FanPrivacyPolicy'
 import { HalloweenCountdownPrivacyPolicy } from './pages/policies/HalloweenCountdownPrivacyPolicy'
 import { ChristmasCountdownPrivacyPolicy } from './pages/policies/ChristmasCountdownPrivacyPolicy'
 import { AscendPrivacyPolicy } from './pages/policies/AscendPrivacyPolicy'
+import { TermsOfService } from './pages/policies/TermsOfService'
 import { Contact } from './pages/Contact'
 import { NotFound } from './pages/NotFound'
 
@@ -73,6 +74,7 @@ export default function App() {
             <Route path="/halloween-countdown-privacy-policy" element={<HalloweenCountdownPrivacyPolicy />} />
             <Route path="/privacy/christmas-countdown" element={<ChristmasCountdownPrivacyPolicy />} />
             <Route path="/privacy/ascend" element={<AscendPrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

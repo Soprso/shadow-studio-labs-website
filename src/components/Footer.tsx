@@ -15,6 +15,7 @@ const studioLinks = [
 const moreLinks = [
   { label: 'Telegram bots', to: '/bots' },
   { label: 'Privacy policies', to: '/privacy' },
+  { label: 'Terms of Service', to: '/terms' },
   { label: 'Contact', to: '/contact' },
 ]
 
