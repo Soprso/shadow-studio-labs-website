@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router'
 import { Container } from '../components/Container'
 import { Seo } from '../components/Seo'
+import { ScreenshotGallery } from '../components/ScreenshotGallery'
 import { StoreButton } from '../components/StoreButton'
 import { Check, ChevronRight, PlayStore } from '../components/Icons'
 import { getApp } from '../data/apps'
@@ -225,6 +226,23 @@ export function AppDetail() {
           </div>
         </Container>
       </section>
+
+      {app.screenshots && app.screenshots.length > 1 && (
+        <section className="border-t border-white/[0.06] py-16 sm:py-20">
+          <Container className="max-w-5xl">
+            <p className="eyebrow">
+              <span aria-hidden="true" className="h-px w-6 bg-accent/70" />
+              Screenshots
+            </p>
+            <h2 className="mt-4 text-2xl font-semibold tracking-[-0.03em] sm:text-3xl">
+              A closer look at {app.name}
+            </h2>
+            <div className="mt-8">
+              <ScreenshotGallery appName={app.name} screenshots={app.screenshots} />
+            </div>
+          </Container>
+        </section>
+      )}
 
       <section className="border-t border-white/[0.06] py-16 sm:py-20">
         <Container className="max-w-4xl">

@@ -23,6 +23,16 @@ import ascendScreenshot from '../assets/optimized/ascend-screenshot.webp'
 import fanBanner from '../assets/optimized/fan-banner.webp'
 import fanIcon from '../assets/optimized/fan-icon.webp'
 
+import offlineAiBanner from '../assets/optimized/offline-ai-banner.webp'
+import offlineAiIcon from '../assets/optimized/offline-ai-icon.webp'
+import offlineAiScreenshot from '../assets/optimized/offline-ai-screenshot.webp'
+
+import newYearBanner from '../assets/optimized/new-year-banner.webp'
+import newYearIcon from '../assets/optimized/new-year-icon.webp'
+import newYearScreenshot1 from '../assets/optimized/new-year-screenshot-1.webp'
+import newYearScreenshot2 from '../assets/optimized/new-year-screenshot-2.webp'
+import newYearScreenshot3 from '../assets/optimized/new-year-screenshot-3.webp'
+
 export const media = {
   christmas: {
     icon: christmasIcon,
@@ -41,5 +51,16 @@ export const media = {
   fan: {
     icon: fanIcon,
     banner: fanBanner,
+  },
+  offlineAi: {
+    icon: offlineAiIcon,
+    banner: offlineAiBanner,
+    screenshot: offlineAiScreenshot,
+  },
+  newYear: {
+    icon: newYearIcon,
+    banner: newYearBanner,
+    screenshot: newYearScreenshot1,
+    screenshots: [newYearScreenshot1, newYearScreenshot2, newYearScreenshot3],
   },
 } as const

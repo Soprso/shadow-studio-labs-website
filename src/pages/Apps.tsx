@@ -11,7 +11,7 @@ export function Apps() {
     <>
       <Seo
         title="Apps & Projects — Shadow Studio Labs"
-        description="Explore the Android applications and upcoming projects built by Shadow Studio Labs, including Christmas Countdown, Halloween Countdown and ASCEND."
+        description="Explore the Android applications and upcoming projects built by Shadow Studio Labs, including Christmas Countdown, Halloween Countdown, ASCEND, Offline AI and New Year Countdown."
       />
       <section className="relative overflow-hidden py-16 sm:py-24">
         <div

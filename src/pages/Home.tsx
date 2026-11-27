@@ -293,49 +293,11 @@ export function Home() {
                 </Link>
               </div>
 
-              {upcomingApps.map((app) => (
-                <Link
-                  key={app.slug}
-                  to={`/apps/${app.slug}`}
-                  className="group relative flex flex-col gap-6 overflow-hidden rounded-2xl border border-white/[0.08] bg-surface p-6 transition duration-500 hover:border-white/[0.16] sm:flex-row sm:items-center sm:p-8"
-                >
-                  {app.banner && (
-                    <img
-                      src={app.banner}
-                      alt=""
-                      aria-hidden="true"
-                      className="absolute inset-0 h-full w-full scale-110 object-cover opacity-[0.08] blur-xl transition duration-700 group-hover:opacity-[0.12]"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  )}
-                  <div className="relative flex items-center gap-4 sm:flex-1">
-                    {app.icon && (
-                      <img
-                        src={app.icon}
-                        alt=""
-                        width={64}
-                        height={64}
-                        className="size-16 shrink-0 rounded-2xl border border-white/10"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    )}
-                    <div>
-                      <span className="inline-flex items-center gap-2 rounded-full border border-warning/20 bg-warning/10 px-2.5 py-0.5 text-[0.65rem] font-medium text-warning">
-                        <span aria-hidden="true" className="size-1.5 rounded-full bg-warning" />
-                        In development
-                      </span>
-                      <h4 className="mt-2 text-xl font-semibold text-ink">{app.name}</h4>
-                      <p className="mt-1 max-w-xl text-sm leading-relaxed text-muted">{app.tagline}</p>
-                    </div>
-                  </div>
-                  <span className="relative inline-flex shrink-0 items-center gap-2 rounded-lg border border-line-strong bg-white/[0.03] px-4 py-2.5 text-sm font-medium text-ink transition duration-300 group-hover:border-white/25 group-hover:bg-white/[0.07]">
-                    Preview project
-                    <ArrowUpRight className="size-4 text-faint transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </span>
-                </Link>
-              ))}
+              <div className="space-y-6 sm:space-y-8">
+                {upcomingApps.map((app, index) => (
+                  <ProductShowcase key={app.slug} app={app} reverse={index % 2 === 1} />
+                ))}
+              </div>
             </Reveal>
           )}
         </Container>

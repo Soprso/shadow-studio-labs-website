@@ -132,8 +132,14 @@ function ProductVisual({ app }: { app: AppInfo }) {
           </div>
         )}
         <div className="absolute -top-3 right-4 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-canvas/85 px-3 py-1.5 text-[0.65rem] font-medium text-muted shadow-lg backdrop-blur">
-          <PlayStore className="size-3" />
-          Google Play
+          {app.playStoreUrl ? (
+            <>
+              <PlayStore className="size-3" />
+              Google Play
+            </>
+          ) : (
+            'Coming soon'
+          )}
         </div>
       </div>
     </div>

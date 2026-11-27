@@ -24,6 +24,7 @@ npm run preview   # preview the production build locally
 | `/apps/fan`    | FAN — Virtual Breeze              |
 | `/privacy`     | Privacy Policies hub              |
 | `/privacy/fan` | FAN — Virtual Breeze Privacy Policy |
+| `/privacy/new-year-countdown` | 2027 New Year Countdown Privacy Policy |
 | `/terms`       | Terms of Service                  |
 | `/contact`     | Contact                           |
 

@@ -12,10 +12,13 @@ import { PrivacyIndex } from './pages/PrivacyIndex'
 import { FanPrivacyPolicy } from './pages/policies/FanPrivacyPolicy'
 import { HalloweenCountdownPrivacyPolicy } from './pages/policies/HalloweenCountdownPrivacyPolicy'
 import { ChristmasCountdownPrivacyPolicy } from './pages/policies/ChristmasCountdownPrivacyPolicy'
+import { NewYearCountdownPrivacyPolicy } from './pages/policies/NewYearCountdownPrivacyPolicy'
+import { OfflineAiPrivacyPolicy } from './pages/policies/OfflineAiPrivacyPolicy'
 import { AscendPrivacyPolicy } from './pages/policies/AscendPrivacyPolicy'
 import { TermsOfService } from './pages/policies/TermsOfService'
 import { Contact } from './pages/Contact'
 import { NotFound } from './pages/NotFound'
+import { ReportDashboard } from './pages/studio/ReportDashboard'
 
 /**
  * Scroll to the top on route changes, or to the matching section when a
@@ -73,9 +76,13 @@ export default function App() {
             <Route path="/privacy/halloween-countdown" element={<HalloweenCountdownPrivacyPolicy />} />
             <Route path="/halloween-countdown-privacy-policy" element={<HalloweenCountdownPrivacyPolicy />} />
             <Route path="/privacy/christmas-countdown" element={<ChristmasCountdownPrivacyPolicy />} />
+            <Route path="/privacy/new-year-countdown" element={<NewYearCountdownPrivacyPolicy />} />
+            <Route path="/privacy/offline-ai" element={<OfflineAiPrivacyPolicy />} />
             <Route path="/privacy/ascend" element={<AscendPrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/contact" element={<Contact />} />
+            {/* Private developer tooling (authenticated server-side). Not linked publicly. */}
+            <Route path="/studio/reports" element={<ReportDashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

@@ -9,7 +9,7 @@ import { ArrowUpRight, Sparkles } from './Icons'
 export function HeroArt() {
   const christmas = publishedApps.find((app) => app.slug === 'christmas-countdown')
   const halloween = publishedApps.find((app) => app.slug === 'halloween-countdown')
-  const ascend = upcomingApps[0]
+  const upcoming = upcomingApps[0]
 
   if (!christmas?.banner || !christmas.icon || !halloween?.banner || !halloween.icon) {
     return null
@@ -85,10 +85,10 @@ export function HeroArt() {
           </div>
         </Link>
 
-        {ascend && (
+        {upcoming && (
           <div className="absolute -left-3 top-[38%] hidden items-center gap-2 rounded-full border border-white/10 bg-canvas/85 px-3 py-2 text-[0.68rem] font-medium text-muted shadow-xl backdrop-blur sm:flex">
             <Sparkles className="size-3.5 text-accent" />
-            <span>{ascend.name} — in development</span>
+            <span>{upcoming.name} — in development</span>
           </div>
         )}
       </div>
